@@ -4,7 +4,7 @@ from .models import Student
 from .serializers import StudentSerializer 
 
 
-class std_show(generics.ListCreateAPIView):
+class students_list(generics.ListCreateAPIView):
     serializer_class = StudentSerializer
 
     def get_queryset(self):
@@ -12,6 +12,6 @@ class std_show(generics.ListCreateAPIView):
         student = self.request.query_params.get('student')
         return queryset
 
-class std_details(generics.RetrieveUpdateDestroyAPIView):
+class student_details(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StudentSerializer
     queryset = Student.objects.all()
